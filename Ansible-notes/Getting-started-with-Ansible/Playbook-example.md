@@ -19,6 +19,11 @@ Command that is used for the example and that will be formatted to the playbook:
 
 ---
 **Allignment in a playbook is very important!** 
+
+To run a playbook use: 
+`ansible-playbook --ask-become-pass (playbook locateion)`
+eg: `ansible-playbook --ask-become-pass playbook/install_cups.yml`
+
 Format playbook:
 
 Playbooks are written in yaml
