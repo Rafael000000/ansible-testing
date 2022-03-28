@@ -4,7 +4,7 @@ File name = "inventory" or "hosts"
 When the file is catted it should look something like this, but with your amount of hosts:
 
 ------------------
-$ cat inventory
+`$ cat inventory`
 
 192.168.122.187
 192.168.122.117
