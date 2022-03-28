@@ -2,7 +2,7 @@
 Ansible testing repository
 
 -------------------------------
-###Ansible-nots
+### Ansible-notes
 -------------------------------
 This directory is a vault for the program Obsidian. The notes in the folder are in markdown format therefore it is possible to open the notes in other programs like notepad or leafpad or programs that support markdown format.
 
