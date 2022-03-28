@@ -1,0 +1,97 @@
+{
+  "main": {
+    "id": "efdc8beb176e3d63",
+    "type": "split",
+    "children": [
+      {
+        "id": "708f4d96ceedf899",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "Getting-started-with-Ansible/Ansible-apt.md",
+            "mode": "source",
+            "source": false
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "f56f07ce64546177",
+    "type": "split",
+    "children": [
+      {
+        "id": "f346466a6a5bba2c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a95f82ea063be5fd",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "a4b4c5adbc2de491",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "a57675e2df5b9e5e",
+    "type": "split",
+    "children": [
+      {
+        "id": "ca7a61e7d1873875",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f8afa268406bfd42",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Getting-started-with-Ansible/Ansible-apt.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "708f4d96ceedf899",
+  "lastOpenFiles": [
+    "Getting-started-with-Ansible/Ansible-apt.md",
+    "Ansible links.md",
+    "Pasted image 20220328134451.png.md",
+    "Pasted image 20220328134451.png"
+  ]
+}
