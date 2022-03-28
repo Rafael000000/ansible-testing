@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#This script makes a backup of '/etc/ansible/hosts'
+#This script creates a backup of '/etc/ansible/hosts'
 #and makes a symlink to '~/Git/ansible-testing/inventory'
 
 #--------------------------------------------------------
