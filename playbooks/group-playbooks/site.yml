@@ -1,0 +1,81 @@
+---
+
+- hosts: all
+  become: true
+  pre_tasks:
+
+  - name: Install updates (AlmaLinux)
+    dnf: 
+        update_only: yes
+        update_cache: yes
+    when: ansible_distribution == "AlmaLinux" 
+
+  - name: Install updates (Ubuntu)
+    apt:
+        upgrade: dist
+        update_cache: yes
+    when: ansible_distribution == "Ubuntu"
+
+  - name: Install updates (Archlinux-based)
+    community.general.pacman:
+      #upgrade: yes
+        update_cache: yes
+    when: ansible_distribution == "Archlinux"
+
+#------------------------------------------------------
+- hosts: web_servers
+  become: true
+  tasks:
+
+# apt
+  - name: Install apache & php for Ubuntu servers
+    apt:
+        name: 
+          - apache2
+          - libapache2-mod-php
+        state: latest
+    when: ansible_pkg_mgr == "apt"
+
+# dnf
+  - name: Install apache & php for Almalinux server
+    dnf:
+        name:
+          - httpd
+          - php
+        state: latest
+    when: ansible_pkg_mgr == "dnf"
+
+#------------------------------------------------------
+- hosts: db_servers
+  become: true
+  tasks:
+
+  - name: Install mariadb package (Almalinux)
+    dnf:
+        name: 
+          - mariadb
+        state: latest
+    when: ansible_distribution == "AlmaLinux"
+
+  - name: install mariadb package (Ubuntu)
+    apt:
+        name:
+          - mariadb-server
+        state: latest
+        autoremove: yes
+    when: ansible_distribution == "Ubuntu"
+#
+#------------------------------------------------------
+- hosts: workstation
+  become: true
+  tasks:
+
+# Pacman
+  - name: Install caddy on Archlinux-based hosts
+    community.general.pacman:
+        name: 
+          - caddy
+        state: latest
+    when: ansible_pkg_mgr == "pacman"
+
+
