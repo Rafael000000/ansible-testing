@@ -1,3 +1,6 @@
 {
-  "baseFontSize": 16
+  "baseFontSize": 13,
+  "cssTheme": "Pink Topaz",
+  "baseFontSizeAction": true,
+  "translucency": true
 }

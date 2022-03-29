@@ -6,14 +6,53 @@
       {
         "id": "708f4d96ceedf899",
         "type": "leaf",
+        "dimension": 79.74217311233886,
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Getting-started-with-Ansible/Apache-playbook.md",
+            "file": "Getting-started-with-Ansible/Ansible-when.md",
             "mode": "preview",
             "source": false
           }
-        }
+        },
+        "group": "721def32acf5f4b0"
+      },
+      {
+        "id": "055259c965606a85",
+        "type": "leaf",
+        "dimension": 20.257826887661142,
+        "state": {
+          "type": "localgraph",
+          "state": {
+            "file": "Getting-started-with-Ansible/Ansible-when.md",
+            "options": {
+              "collapse-filter": true,
+              "search": "",
+              "localJumps": 1,
+              "localBacklinks": true,
+              "localForelinks": true,
+              "localInterlinks": false,
+              "showTags": false,
+              "showAttachments": false,
+              "hideUnresolved": false,
+              "collapse-color-groups": true,
+              "colorGroups": [],
+              "collapse-display": true,
+              "showArrow": false,
+              "textFadeMultiplier": 0,
+              "nodeSizeMultiplier": 1,
+              "lineSizeMultiplier": 1,
+              "collapse-forces": true,
+              "centerStrength": 0.518713248970312,
+              "repelStrength": 10,
+              "linkStrength": 1,
+              "linkDistance": 250,
+              "scale": 1,
+              "close": false
+            }
+          }
+        },
+        "group": "721def32acf5f4b0"
       }
     ],
     "direction": "vertical"
@@ -53,7 +92,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 237
+    "width": 231
   },
   "right": {
     "id": "a57675e2df5b9e5e",
@@ -69,14 +108,14 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Getting-started-with-Ansible/Apache-playbook.md",
+                "file": "Getting-started-with-Ansible/Ansible-when.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
                 "searchQuery": "",
                 "backlinkCollapsed": false,
-                "unlinkedCollapsed": true
+                "unlinkedCollapsed": false
               }
             }
           }
@@ -89,10 +128,12 @@
   },
   "active": "708f4d96ceedf899",
   "lastOpenFiles": [
+    "Getting-started-with-Ansible/Ansible-when.md",
+    "Getting-started-with-Ansible/Ansible-apt-commands.md",
     "Getting-started-with-Ansible/Apache-playbook.md",
     "Getting-started-with-Ansible/Playbook-example.md",
+    "SSH-keys.md",
     "Getting-started-with-Ansible/Inventory-file.md",
-    "Getting-started-with-Ansible/Ansible-apt.md",
     "Ansible links.md",
     "Pasted image 20220328134451.png.md",
     "Pasted image 20220328134451.png"
