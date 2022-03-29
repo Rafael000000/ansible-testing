@@ -1,5 +1,6 @@
-*.yml linguist-detectable=true
-*.ini linguist-detectable=true
-*.cfg linguist-detectable=true
-*.md  linguist-detectable=true
-*.sh  linguist-detectable=true
+*.yml  linguist-detectable=true
+*.ini  linguist-detectable=true
+*.cfg  linguist-detectable=true
+*.md   linguist-detectable=true
+*.sh   linguist-detectable=true
+*.json linguist-detectable=false
