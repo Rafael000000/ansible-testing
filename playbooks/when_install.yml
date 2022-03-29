@@ -1,0 +1,37 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: update repository index
+    apt:
+      update_cache: yes
+    when: ansible_pkg_mgr == "apt"
+
+  - name: install apache2 package
+    apt:
+        name: apache2
+        state: latest
+    when: ansible_pkg_mgr == "apt"
+
+  - name: add PHP support for apache
+    apt:
+        name: libapache2-mod-php
+        state: latest
+    when: ansible_pkg_mgr == "apt"
+ 
+  - name: Update repository index
+    community.general.pacman:
+        update_cache: yes
+    when: ansible_pkg_mgr == "pacman"
+
+  - name: Install arandr on arch machine
+    community.general.pacman:
+        name: arandr
+    when: ansible_pkg_mgr == "pacman"
+
+  - name: Install bat on arch machine
+    community.general.pacman:
+        name: bat
+    when: ansible_pkg_mgr == "pacman"
