@@ -20,8 +20,8 @@
         name: libapache2-mod-php
         state: latest
     when: ansible_pkg_mgr == "apt"
- 
-  - name: Update repository index
+
+  - name: update repository index
     community.general.pacman:
         update_cache: yes
     when: ansible_pkg_mgr == "pacman"
@@ -35,3 +35,4 @@
     community.general.pacman:
         name: bat
     when: ansible_pkg_mgr == "pacman"
+
