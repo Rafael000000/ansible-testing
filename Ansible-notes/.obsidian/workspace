@@ -10,7 +10,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Getting-started-with-Ansible/cleaner-playbook.md",
+            "file": "Getting-started-with-Ansible/Group-playbooks.md",
             "mode": "source",
             "source": false
           }
@@ -23,7 +23,7 @@
         "state": {
           "type": "localgraph",
           "state": {
-            "file": "Getting-started-with-Ansible/cleaner-playbook.md",
+            "file": "Getting-started-with-Ansible/Group-playbooks.md",
             "options": {
               "collapse-filter": true,
               "search": "",
@@ -106,7 +106,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Getting-started-with-Ansible/cleaner-playbook.md",
+                "file": "Getting-started-with-Ansible/Group-playbooks.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -126,15 +126,15 @@
   },
   "active": "708f4d96ceedf899",
   "lastOpenFiles": [
+    "Getting-started-with-Ansible/Group-playbooks.md",
+    "Getting-started-with-Ansible/Sticky-note.md",
     "Getting-started-with-Ansible/cleaner-playbook.md",
+    "Getting-started-with-Ansible/Ansible-when.md",
     "Getting-started-with-Ansible/Ansible-apt-commands.md",
     "Ansible links.md",
     "SSH-keys.md",
     "Getting-started-with-Ansible/Inventory-file.md",
     "Getting-started-with-Ansible/Playbook-example.md",
-    "Getting-started-with-Ansible/Sticky-note.md",
-    "Getting-started-with-Ansible/Ansible-when.md",
-    "Getting-started-with-Ansible/Apache-playbook.md",
-    "Pasted image 20220328134451.png.md"
+    "Getting-started-with-Ansible/Apache-playbook.md"
   ]
 }

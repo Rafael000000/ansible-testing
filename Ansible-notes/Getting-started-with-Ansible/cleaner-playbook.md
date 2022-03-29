@@ -1,3 +1,5 @@
+[[Ansible-when]]
+
 You can create a cleaner playbook by merging stuff together:
 
 ``` yaml
