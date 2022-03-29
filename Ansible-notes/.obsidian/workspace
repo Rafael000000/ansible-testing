@@ -6,25 +6,24 @@
       {
         "id": "708f4d96ceedf899",
         "type": "leaf",
-        "dimension": 79.74217311233886,
+        "dimension": 76.30448127685698,
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Getting-started-with-Ansible/Ansible-when.md",
-            "mode": "preview",
+            "file": "Getting-started-with-Ansible/cleaner-playbook.md",
+            "mode": "source",
             "source": false
           }
-        },
-        "group": "721def32acf5f4b0"
+        }
       },
       {
-        "id": "055259c965606a85",
+        "id": "e467676114dc9eee",
         "type": "leaf",
-        "dimension": 20.257826887661142,
+        "dimension": 23.69551872314303,
         "state": {
           "type": "localgraph",
           "state": {
-            "file": "Getting-started-with-Ansible/Ansible-when.md",
+            "file": "Getting-started-with-Ansible/cleaner-playbook.md",
             "options": {
               "collapse-filter": true,
               "search": "",
@@ -51,8 +50,7 @@
               "close": false
             }
           }
-        },
-        "group": "721def32acf5f4b0"
+        }
       }
     ],
     "direction": "vertical"
@@ -108,7 +106,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Getting-started-with-Ansible/Ansible-when.md",
+                "file": "Getting-started-with-Ansible/cleaner-playbook.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -128,14 +126,15 @@
   },
   "active": "708f4d96ceedf899",
   "lastOpenFiles": [
-    "Getting-started-with-Ansible/Ansible-when.md",
+    "Getting-started-with-Ansible/cleaner-playbook.md",
     "Getting-started-with-Ansible/Ansible-apt-commands.md",
-    "Getting-started-with-Ansible/Apache-playbook.md",
-    "Getting-started-with-Ansible/Playbook-example.md",
+    "Ansible links.md",
     "SSH-keys.md",
     "Getting-started-with-Ansible/Inventory-file.md",
-    "Ansible links.md",
-    "Pasted image 20220328134451.png.md",
-    "Pasted image 20220328134451.png"
+    "Getting-started-with-Ansible/Playbook-example.md",
+    "Getting-started-with-Ansible/Sticky-note.md",
+    "Getting-started-with-Ansible/Ansible-when.md",
+    "Getting-started-with-Ansible/Apache-playbook.md",
+    "Pasted image 20220328134451.png.md"
   ]
 }

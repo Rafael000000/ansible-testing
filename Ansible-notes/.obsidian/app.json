@@ -1,5 +1,9 @@
 {
   "legacyEditor": false,
   "livePreview": true,
-  "alwaysUpdateLinks": true
+  "alwaysUpdateLinks": true,
+  "spellcheck": true,
+  "spellcheckLanguages": [
+    "en-US"
+  ]
 }

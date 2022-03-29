@@ -52,7 +52,7 @@ It is possible to login to your server with your SSH key. To do this you have to
 `ssh-copy-id -i name.pub serverip`
 eg: `ssh-copy-id -i FirstKey.pub 192.168.122.124`
 
-`-i`  stands for inputfile
+`-i`  stands for input-file
 
 ----
 

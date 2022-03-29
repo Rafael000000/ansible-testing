@@ -1,4 +1,4 @@
-**Allignment in a playbook is very important!** 
+**Alignment in a playbook is very important!** 
 [[Playbook-example]]
 
 Info about:

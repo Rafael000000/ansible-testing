@@ -18,7 +18,7 @@ Command that is used for the example and that will be formatted to the playbook:
 `-a "name=cups"` becomes `name: cups`
 
 ---
-**Allignment in a playbook is very important!** 
+**Alignment in a playbook is very important!** 
 
 To run a playbook use: 
 `ansible-playbook --ask-become-pass (playbook locateion)`

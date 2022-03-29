@@ -38,6 +38,19 @@
 
 With 'when:' you can make it so that a command only runs when, for example, apt is available on the server/machine.
 
+Options for when:
+
+`==` (Is equal to)
+`!=` (Is not equal to)
+`<=` (Smaller then or equal to)
+`>=` (Bigger  then or equal to)
+
+eg: 
+when: ansible_pkg_mgr == "pacman" (is equal to)
+when: ansible_pkg_mgr != "pacman" (is not equal to)
+when: ansible_distribution_major_version <= '7' (smaller then or equal to)
+when: ansible_distribution_major_version >= '7' (bigger then or equal to)
+
 The strings you can use with 'when:' are only limited by the output of the following command:
 `ansible (all/ip-address) -m gather_facts` 
 eg: `ansible 192.168.122.124 -m gather_facts`
