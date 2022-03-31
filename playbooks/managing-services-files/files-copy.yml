@@ -1,0 +1,107 @@
+---
+
+- hosts: all
+  become: true
+  pre_tasks:
+
+  - name: Install updates (AlmaLinux)
+    tags: always
+    dnf: 
+        update_only: yes
+        update_cache: yes
+    when: ansible_distribution == "AlmaLinux" 
+
+  - name: Install updates (Ubuntu)
+    tags: always
+    apt:
+        upgrade: dist
+        update_cache: yes
+    when: ansible_distribution == "Ubuntu"
+
+  - name: Install updates (Archlinux-based)
+    tags: always,archup
+    community.general.pacman:
+      #upgrade: yes
+      #upgrade_extra_args: --noconfirm
+        update_cache: yes
+    when: ansible_distribution == "Archlinux"
+
+#------------------------------------------------------
+- hosts: web_servers
+  become: true
+  tasks:
+
+# apt
+  - name: Install apache & php for Ubuntu servers
+    tags: httpd,apache2
+    apt:
+        name: 
+          - apache2
+          - libapache2-mod-php
+        state: latest
+    when: ansible_pkg_mgr == "apt"
+
+# dnf
+  - name: Install apache & php for Almalinux server
+    tags: httpd,apache2
+    dnf:
+        name:
+          - httpd
+          - php
+        state: latest
+    when: ansible_pkg_mgr == "dnf"
+
+  - name: Copy default html file to web servers
+    tags: httpd,apache2
+    copy:
+      src: default_site.html
+      dest: /var/www/html/index.html
+      owner: root
+      group: root
+      mode: 0644
+
+#------------------------------------------------------
+- hosts: db_servers
+  become: true
+  tasks:
+
+  - name: Install mariadb package (Almalinux)
+    dnf:
+        name: 
+          - mariadb
+        state: latest
+    when: ansible_distribution == "AlmaLinux"
+
+  - name: install mariadb package (Ubuntu)
+    apt:
+        name:
+          - mariadb-server
+        state: latest
+        autoremove: yes
+    when: ansible_distribution == "Ubuntu"
+#------------------------------------------------------
+- hosts: file_servers
+  become: true
+  tasks:
+
+  - name: Install samba package (Ubuntu & AlmaLinux)
+    package:
+        name:
+          - samba
+        state: latest
+
+#------------------------------------------------------
+- hosts: workstation
+  become: true
+  tasks:
+
+# Pacman
+  - name: Install caddy on (Archlinux-based)
+    tags: arch
+    community.general.pacman:
+        name: 
+          - caddy
+        state: latest
+    when: ansible_pkg_mgr == "pacman"
+
+
