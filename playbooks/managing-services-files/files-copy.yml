@@ -14,15 +14,18 @@
   - name: Install updates (Ubuntu)
     tags: always
     apt:
-        upgrade: dist
         update_cache: yes
+        upgrade: dist
+        autoremove: yes
     when: ansible_distribution == "Ubuntu"
 
   - name: Install updates (Archlinux-based)
     tags: always,archup
     community.general.pacman:
-      #upgrade: yes
-      #upgrade_extra_args: --noconfirm
+        executable: pacman
+        extra_args: -Sy archlinux --noconfirm
+        upgrade: yes
+        upgrade_extra_args: --noconfirm
         update_cache: yes
     when: ansible_distribution == "Archlinux"
 
@@ -31,8 +34,7 @@
   become: true
   tasks:
 
-# apt
-  - name: Install apache & php for Ubuntu servers
+  - name: Install apache & php (Ubuntu)
     tags: httpd,apache2
     apt:
         name: 
@@ -41,9 +43,10 @@
         state: latest
     when: ansible_pkg_mgr == "apt"
 
-# dnf
-  - name: Install apache & php for Almalinux server
-    tags: httpd,apache2
+#--------
+
+  - name: Install apache & php (AlmaLinux)
+    tags: httpd,apache2,alma
     dnf:
         name:
           - httpd
@@ -51,10 +54,24 @@
         state: latest
     when: ansible_pkg_mgr == "dnf"
 
+  - name: Enable httpd.service(AlmaLinux)
+    tags: httpd,apache2,alma
+    ansible.builtin.systemd:
+      state: started
+      enabled: yes
+      name: httpd
+    when: ansible_os_family == "RedHat"
+
+  - name: Add port 80/tcp to firewall
+    tags: httpd,apache2,alma
+    ansible.builtin.shell:
+      cmd: sudo firewall-cmd --add-port=80/tcp
+    when: ansible_os_family == "RedHat"
+
   - name: Copy default html file to web servers
-    tags: httpd,apache2
+    tags: httpd,apache2,copy
     copy:
-      src: default_site.html
+      src: /home/$USER/Git/ansible-testing/playbooks/managing-services-files/default_site.html
       dest: /var/www/html/index.html
       owner: root
       group: root
@@ -65,7 +82,7 @@
   become: true
   tasks:
 
-  - name: Install mariadb package (Almalinux)
+  - name: Install mariadb package (AlmaLinux)
     dnf:
         name: 
           - mariadb
@@ -95,13 +112,26 @@
   become: true
   tasks:
 
-# Pacman
-  - name: Install caddy on (Archlinux-based)
-    tags: arch
+  - name: Install multiple packages (Archlinux-based)
+    tags: arch,workstation
     community.general.pacman:
         name: 
           - caddy
+          - unzip
         state: latest
     when: ansible_pkg_mgr == "pacman"
+  
+  - name: Enable caddy.service (Archlinux-based)
+    tags: arch,workstation
+    ansible.builtin.shell:
+        cmd: sudo systemctl enable --now caddy 
 
-
+  - name: Install terraform
+    tags: workstation
+    unarchive: 
+      src: https://releases.hashicorp.com/terraform/1.1.7/terraform_1.1.7_linux_amd64.zip
+      dest: /usr/local/bin
+      remote_src: yes
+      mode: 0755
+      owner: root
+      group: root
