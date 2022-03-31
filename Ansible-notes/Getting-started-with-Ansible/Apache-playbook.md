@@ -15,7 +15,7 @@ Info about:
 
 To run a playbook use: 
 `ansible-playbook --ask-become-pass (playbook locateion)`
-eg: `ansible-playbook --ask-become-pass playbook/install_apache.yml`
+e.g. `ansible-playbook --ask-become-pass playbook/install_apache.yml`
 
 Format playbook:
 

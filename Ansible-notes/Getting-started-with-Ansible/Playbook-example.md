@@ -9,7 +9,7 @@ Command that is used for the example and that will be formatted to the playbook:
 `--become` becomes `become: true` in a playbook
 
 -- This will be a title in the output. Be descriptive.
-`- name: (name)` eg: `- name= install cups package`
+`- name: (name)` e.g. `- name= install cups package`
 
 -- Documentation on the apt module: [Ansible apt docs](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/apt_module.html)
 `apt` stays `apt` but make sure it is alligned correctly
@@ -22,7 +22,7 @@ Command that is used for the example and that will be formatted to the playbook:
 
 To run a playbook use: 
 `ansible-playbook --ask-become-pass (playbook locateion)`
-eg: `ansible-playbook --ask-become-pass playbook/install_cups.yml`
+e.g. `ansible-playbook --ask-become-pass playbook/install_cups.yml`
 
 Format playbook:
 

@@ -32,7 +32,7 @@ File name: cleaner-playbook-part-1.yml
 
 Here ^ I merged the apt lines together. Where at first I had 3 apt blocks, 1 for update_cache and 2 for installing packages, I now have one block that does all of it. 
 This is possible because all of the options (name & update_cache) are available in the 'apt' module. 
-Therefor as long as the string that is part of a module is located in the block of the correct module, eg. update_cache is located in the apt block (with right indentation), the block will recognize it as an option. 
+Therefor as long as the string that is part of a module is located in the block of the correct module, e.g. update_cache is located in the apt block (with right indentation), the block will recognize it as an option. 
 
 ```yaml
 File name: cleaner-playbook-part-2.yml

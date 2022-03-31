@@ -1,6 +1,6 @@
 ## Create a SSH private and public key
 `ssh-keygen -t (type) -C "comment"`
-eg: `ssh-keygen -t ed25519 -C "my default"`
+e.g. `ssh-keygen -t ed25519 -C "my default"`
 
 `-t`  stands for 'key type'
 
@@ -50,7 +50,7 @@ The key's randomart image is:
 It is possible to login to your server with your SSH key. To do this you have to send your key to the server. To send a SSH key to a server you use the following command:
 
 `ssh-copy-id -i name.pub serverip`
-eg: `ssh-copy-id -i FirstKey.pub 192.168.122.124`
+e.g. `ssh-copy-id -i FirstKey.pub 192.168.122.124`
 
 `-i`  stands for input-file
 
@@ -60,6 +60,6 @@ eg: `ssh-copy-id -i FirstKey.pub 192.168.122.124`
 To use your SSH key for logging in to a server via SSH you have to do the following:
 
 `eval "$(ssh-agent)" && ssh-add /home/$USER/.ssh/Privatekey`
-eg: `eval "$(ssh-agent)" && ssh-add /home/$USER/.ssh/id_ed25519`
+e.g. `eval "$(ssh-agent)" && ssh-add /home/$USER/.ssh/id_ed25519`
 
 If you created a password for your key you will need to enter it. After that you can just SSH into your servers with the terminal session. When you open a new terminal you will have to repeat this step.
