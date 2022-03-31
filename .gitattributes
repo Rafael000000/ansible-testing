@@ -5,3 +5,4 @@
 *.sh   linguist-detectable=true
 *.json linguist-detectable=false
 *.css  linguist-detectable=false
+*.js   linguist-detectable=false
