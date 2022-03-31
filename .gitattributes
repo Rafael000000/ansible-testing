@@ -3,6 +3,3 @@
 *.cfg  linguist-detectable=true
 *.md   linguist-detectable=true
 *.sh   linguist-detectable=true
-*.json linguist-detectable=true
-*.css  linguist-detectable=true
-*.js   linguist-detectable=true
