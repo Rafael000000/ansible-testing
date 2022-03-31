@@ -3,3 +3,6 @@
 *.cfg  linguist-vendored
 *.md   linguist-vendored
 *.sh   linguist-vendored
+*.css  linguist-detectable=false
+*.js   linguist-detectable=false
+*.json linguist-detectable=false
