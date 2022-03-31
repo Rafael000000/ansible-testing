@@ -3,7 +3,7 @@
 *.cfg  linguist-detectable=true
 *.md   linguist-detectable=true
 *.sh   linguist-detectable=true
-*.sh   linguist-detectable=true
+*.html linguist-detectable=true
 *.css  linguist-documentation=true
 *.js   linguist-documentation=true
 *.json linguist-documentation=true
