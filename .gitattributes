@@ -3,3 +3,5 @@
 *.cfg  linguist-detectable=true
 *.md   linguist-detectable=true
 *.sh   linguist-detectable=true
+*.js   linguist-vendored
+*.css  linguist-vendored
