@@ -6,49 +6,12 @@
       {
         "id": "708f4d96ceedf899",
         "type": "leaf",
-        "dimension": 76.30448127685698,
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Getting-started-with-Ansible/Group-playbooks.md",
-            "mode": "source",
+            "file": "SSH-keys.md",
+            "mode": "preview",
             "source": false
-          }
-        }
-      },
-      {
-        "id": "e467676114dc9eee",
-        "type": "leaf",
-        "dimension": 23.69551872314303,
-        "state": {
-          "type": "localgraph",
-          "state": {
-            "file": "Getting-started-with-Ansible/Group-playbooks.md",
-            "options": {
-              "collapse-filter": true,
-              "search": "",
-              "localJumps": 1,
-              "localBacklinks": true,
-              "localForelinks": true,
-              "localInterlinks": false,
-              "showTags": false,
-              "showAttachments": false,
-              "hideUnresolved": false,
-              "collapse-color-groups": true,
-              "colorGroups": [],
-              "collapse-display": true,
-              "showArrow": false,
-              "textFadeMultiplier": 0,
-              "nodeSizeMultiplier": 1,
-              "lineSizeMultiplier": 1,
-              "collapse-forces": true,
-              "centerStrength": 0.518713248970312,
-              "repelStrength": 10,
-              "linkStrength": 1,
-              "linkDistance": 250,
-              "scale": 1,
-              "close": false
-            }
           }
         }
       }
@@ -77,7 +40,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "remove",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -106,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Getting-started-with-Ansible/Group-playbooks.md",
+                "file": "SSH-keys.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -126,15 +89,15 @@
   },
   "active": "708f4d96ceedf899",
   "lastOpenFiles": [
-    "Getting-started-with-Ansible/Group-playbooks.md",
-    "Getting-started-with-Ansible/Sticky-note.md",
-    "Getting-started-with-Ansible/cleaner-playbook.md",
-    "Getting-started-with-Ansible/Ansible-when.md",
-    "Getting-started-with-Ansible/Ansible-apt-commands.md",
-    "Ansible links.md",
     "SSH-keys.md",
     "Getting-started-with-Ansible/Inventory-file.md",
+    "Getting-started-with-Ansible/Sticky-note.md",
     "Getting-started-with-Ansible/Playbook-example.md",
-    "Getting-started-with-Ansible/Apache-playbook.md"
+    "Getting-started-with-Ansible/cleaner-playbook.md",
+    "Getting-started-with-Ansible/Apache-playbook.md",
+    "Getting-started-with-Ansible/Ansible-when.md",
+    "Getting-started-with-Ansible/Ansible-apt-commands.md",
+    "Getting-started-with-Ansible/Group-playbooks.md",
+    "Ansible links.md"
   ]
 }
