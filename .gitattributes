@@ -1,7 +1,5 @@
-*.yml  linguist-detectable=true
-*.ini  linguist-detectable=true
-*.cfg  linguist-detectable=true
-*.md   linguist-detectable=true
-*.sh   linguist-detectable=true
-*.js   linguist-vendored
-*.css  linguist-vendored
+*.yml  linguist-vendored
+*.ini  linguist-vendored
+*.cfg  linguist-vendored
+*.md   linguist-vendored
+*.sh   linguist-vendored
