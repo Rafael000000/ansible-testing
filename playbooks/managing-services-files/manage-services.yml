@@ -54,6 +54,20 @@
         state: latest
     when: ansible_pkg_mgr == "dnf"
 
+  - name: Enable httpd.service(AlmaLinux)
+    tags: httpd,apache2,alma
+    service:
+        state: started
+        enabled: yes
+        name: httpd
+    when: ansible_os_family == "RedHat"
+
+  - name: Add port 80/tcp to firewall
+    tags: httpd,apache2,alma
+    ansible.builtin.shell:
+        cmd: sudo firewall-cmd --add-port=80/tcp
+    when: ansible_os_family == "RedHat"
+
   - name: Copy default html file to web servers
     tags: httpd,apache2,copy
     copy:
