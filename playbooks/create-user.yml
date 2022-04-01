@@ -30,6 +30,41 @@
     when: ansible_distribution == "Archlinux"
 
 #------------------------------------------------------
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: Create user whyme (Ubuntu)
+    tags: always,user
+    user: 
+        name: whyme
+        groups: sudo
+    when: ansible_distribution == "Ubuntu"
+
+  - name: Create user whyme (Archlinux & AlmaLinux)
+    tags: always,user
+    user:
+        name: whyme
+        groups: wheel
+    when: ansible_distribution != "Ubuntu"
+
+  - name: Add ssh key for whyme
+    tags: always,user
+    authorized_key:
+        user: whyme
+        key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIETZeeBBZ89bV2MPt7NXQJEj/kPTUz2DZF6Cf81nkpmE ansible"
+
+  - name: Add sudoers file for whyme
+    tags: always,user
+    copy:
+      src: sudoer_whyme
+      dest: /etc/sudoers.d/whyme
+      owner: root
+      groep: root
+      mode: 0440
+
+#------------------------------------------------------
 - hosts: web_servers
   become: true
   tasks:
@@ -53,6 +88,20 @@
           - php
         state: latest
     when: ansible_pkg_mgr == "dnf"
+
+  - name: Enable httpd.service(AlmaLinux)
+    tags: httpd,apache2,alma
+    service:
+        state: started
+        enabled: yes
+        name: httpd
+    when: ansible_os_family == "RedHat"
+
+  - name: Add port 80/tcp to firewall
+    tags: httpd,apache2,alma
+    ansible.builtin.shell:
+        cmd: sudo firewall-cmd --add-port=80/tcp
+    when: ansible_os_family == "RedHat"
 
   - name: Copy default html file to web servers
     tags: httpd,apache2,copy
@@ -105,12 +154,15 @@
           - caddy
           - unzip
         state: latest
-    when: ansible_pkg_mgr == "pacman"
+    when: ansible_distribution == "Archlinux"
   
   - name: Enable caddy.service (Archlinux-based)
     tags: arch,workstation
-    ansible.builtin.shell:
-        cmd: sudo systemctl enable --now caddy 
+    service:
+        name: caddy
+        state: started
+        enabled: yes
+    when: ansible_distribution == "Archlinux"
 
   - name: Install terraform
     tags: workstation

@@ -71,7 +71,7 @@
   - name: Copy default html file to web servers
     tags: httpd,apache2,copy
     copy:
-        src: /home/$USER/Git/ansible-testing/playbooks/managing-services-files/default_site.html
+        src: /home/$USER/Git/ansible-testing/playbooks/files/default_site.html
         dest: /var/www/html/index.html
         owner: root
         group: root
@@ -123,8 +123,10 @@
   
   - name: Enable caddy.service (Archlinux-based)
     tags: arch,workstation
-    ansible.builtin.shell:
-        cmd: sudo systemctl enable --now caddy 
+    service:
+        name: caddy
+        state: started
+        enabled: yes
 
   - name: Install terraform
     tags: workstation
