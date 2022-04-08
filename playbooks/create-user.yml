@@ -39,14 +39,14 @@
     tags: always,user
     user: 
         name: whyme
-        groups: sudo
+        groups: whyme
     when: ansible_distribution == "Ubuntu"
 
   - name: Create user whyme (Archlinux & AlmaLinux)
     tags: always,user
     user:
         name: whyme
-        groups: wheel
+        groups: whyme
     when: ansible_distribution != "Ubuntu"
 
   - name: Add ssh key for whyme
@@ -54,6 +54,7 @@
     authorized_key:
         user: whyme
         key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIETZeeBBZ89bV2MPt7NXQJEj/kPTUz2DZF6Cf81nkpmE ansible"
+
 
   - name: Add sudoers file for whyme
     tags: always,user
@@ -64,6 +65,11 @@
       group: root
       mode: 0440
 
+
+  - name: Echo rights into /etc/sudoers file
+    tags: user
+    ansible.builtin.shell:
+        cmd: cat /etc/sudoers.d/whyme >> /etc/sudoers
 #------------------------------------------------------
 - hosts: web_servers
   become: true
