@@ -19,15 +19,15 @@
         autoremove: yes
     when: ansible_distribution == "Ubuntu"
 
-  - name: Install updates (Archlinux-based)
-    tags: always,archup
-    community.general.pacman:
-        executable: pacman
-        extra_args: -Sy archlinux --noconfirm
-        upgrade: yes
-        upgrade_extra_args: --noconfirm
-        update_cache: yes
-    when: ansible_distribution == "Archlinux"
+    #- name: Install updates (Archlinux-based)
+    #tags: always,archup
+    #community.general.pacman:
+      # executable: pacman
+      # extra_args: -Sy archlinux --noconfirm
+      # upgrade: yes
+      # upgrade_extra_args: --noconfirm
+      # update_cache: yes
+    #when: ansible_distribution == "Archlinux"
 
 #------------------------------------------------------
 
@@ -58,10 +58,10 @@
   - name: Add sudoers file for whyme
     tags: always,user
     copy:
-      src: sudoer_whyme
+      src: /home/$USER/Git/ansible-testing/playbooks/files/sudoer_whyme
       dest: /etc/sudoers.d/whyme
       owner: root
-      groep: root
+      group: root
       mode: 0440
 
 #------------------------------------------------------
