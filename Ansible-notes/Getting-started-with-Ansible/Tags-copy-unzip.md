@@ -48,7 +48,7 @@ e.g. This snippet is located under (- hosts: web_servers)
 - name: Copy default html file to web servers
     tags: httpd,apache2
     copy:
-    src:/home/$USER/Git/ansible-testing/getting-started-with-ansible/playbooks/managing-services-files/default_site.html
+    src:/home/$USER/Git/ansible-testing/getting-started-with-ansible/files/default_site.html
      #"src:"" needs to be lined up with "dest:" and don't forget the space between : and /
       dest: /var/www/html/index.html
       owner: root

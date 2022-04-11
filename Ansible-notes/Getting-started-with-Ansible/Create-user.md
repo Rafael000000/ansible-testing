@@ -52,7 +52,7 @@ e.g. (snippet from bootstrap.yml)
   - name: Add sudoers file for whyme
     tags: always,user
     copy:
-      src: /home/$USER/Git/ansible-testing/getting-started-with-ansible/playbooks/files/sudoer_whyme
+      src: /home/$USER/Git/ansible-testing/getting-started-with-ansible/files/sudoer_whyme
       dest: /etc/sudoers.d/whyme
       owner: root
       group: root

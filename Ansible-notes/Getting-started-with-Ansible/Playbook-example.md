@@ -22,7 +22,8 @@ Command that is used for the example and that will be formatted to the playbook:
 
 To run a playbook use: 
 `ansible-playbook --ask-become-pass (playbook locateion)`
-e.g. `ansible-playbook --ask-become-pass playbook/install_cups.yml`
+e.g. 
+`ansible-playbook --ask-become-pass playbook/testing_installing-removin/install_cups.yml`
 
 Format playbook:
 

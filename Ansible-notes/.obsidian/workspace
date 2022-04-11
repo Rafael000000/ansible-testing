@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Getting-started-with-Ansible/Create-user.md",
+            "file": "SSH-keys.md",
             "mode": "source",
             "source": false
           }
@@ -40,7 +40,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "system",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Getting-started-with-Ansible/Create-user.md",
+                "file": "SSH-keys.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -89,15 +89,15 @@
   },
   "active": "708f4d96ceedf899",
   "lastOpenFiles": [
-    "Getting-started-with-Ansible/Create-user.md",
-    "Getting-started-with-Ansible/Group-playbooks.md",
-    "Getting-started-with-Ansible/Managing-services.md",
-    "Getting-started-with-Ansible/Inventory-file.md",
+    "SSH-keys.md",
+    "Ansible links.md",
     "Getting-started-with-Ansible/Tags-copy-unzip.md",
     "Getting-started-with-Ansible/Sticky-note & checklist.md",
+    "Getting-started-with-Ansible/Roles.md",
     "Getting-started-with-Ansible/Playbook-example.md",
-    "Getting-started-with-Ansible/cleaner-playbook.md",
-    "Getting-started-with-Ansible/Apache-playbook.md",
-    "Getting-started-with-Ansible/Ansible-when.md"
+    "Getting-started-with-Ansible/Managing-services.md",
+    "Getting-started-with-Ansible/Inventory-file.md",
+    "Getting-started-with-Ansible/Group-playbooks.md",
+    "Getting-started-with-Ansible/Create-user.md"
   ]
 }
