@@ -1,0 +1,5 @@
+- name: Add ssh key for whyme
+  tags: always,user
+  authorized_key:
+      user: whyme
+      key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIETZeeBBZ89bV2MPt7NXQJEj/kPTUz2DZF6Cf81nkpmE ansible"

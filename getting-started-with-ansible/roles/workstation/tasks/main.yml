@@ -1,0 +1,26 @@
+- name: Install multiple packages (Archlinux-based)
+  tags: arch,workstation
+  community.general.pacman:
+      name:
+        - caddy
+        - unzip
+      state: latest
+  when: ansible_distribution == "Archlinux"
+#----
+- name: Enable caddy.service (Archlinux-based)
+  tags: arch,workstation
+  service:
+      name: caddy
+      state: started
+      enabled: yes
+  when: ansible_distribution == "Archlinux"
+#----
+- name: Install terraform
+  tags: workstation
+  unarchive:
+    src: https://releases.hashicorp.com/terraform/1.1.7/terraform_1.1.7_linux_amd64.zip
+    dest: /usr/local/bin
+    remote_src: yes
+    mode: 0755
+    owner: root
+    group: root

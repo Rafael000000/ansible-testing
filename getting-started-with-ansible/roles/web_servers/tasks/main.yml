@@ -1,0 +1,49 @@
+- name: Install apache & php (Ubuntu)
+  tags: httpd,apache2
+  apt:
+      name:
+        - apache2
+        - libapache2-mod-php
+      state: latest
+  when: ansible_pkg_mgr == "apt"
+
+#--------
+- name: Install apache & php (AlmaLinux)
+  tags: httpd,apache2,alma
+  dnf:
+      name:
+        - httpd
+        - php
+      state: latest
+  when: ansible_pkg_mgr == "dnf"
+#----
+- name: Enable httpd.service(AlmaLinux)
+  tags: httpd,apache2,alma
+  service:
+      state: started
+      enabled: yes
+      name: httpd
+  when: ansible_os_family == "RedHat"
+#----
+- name: Add port 80/tcp to firewall
+  tags: httpd,apache2,alma
+  ansible.builtin.shell:
+      cmd: sudo firewall-cmd --add-port=80/tcp
+  when: ansible_os_family == "RedHat"
+#----
+- name: Copy default html file to web servers
+  tags: httpd,apache2,copy
+  copy:
+      src: default_site.html
+      dest: /var/www/html/index.html
+      owner: root
+      group: root
+      mode: 0644
+#----
+- name: Restart apache2.service so index.html takes effect (Ubuntu)
+  tags: apache2
+  service:
+      state: restarted
+      enabled: yes
+      name: apache2
+  when: ansible_os_family == "Ubuntu"
