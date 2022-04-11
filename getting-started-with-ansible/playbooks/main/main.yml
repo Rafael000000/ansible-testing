@@ -7,28 +7,42 @@
   - name: Install updates (AlmaLinux)
     tags: always
     dnf: 
-        update_only: yes
         update_cache: yes
+    changed_when: false
     when: ansible_distribution == "AlmaLinux" 
 
   - name: Install updates (Ubuntu)
     tags: always
     apt:
         update_cache: yes
-        upgrade: dist
-        autoremove: yes
+    changed_when: false
     when: ansible_distribution == "Ubuntu"
 
   - name: Install updates (Archlinux-based)
     tags: always,archup
     community.general.pacman:
-        executable: pacman
-        extra_args: -Sy archlinux --noconfirm
-        upgrade: yes
-        upgrade_extra_args: --noconfirm
-        update_cache: yes
+       update_cache: yes
+    changed:when: false
     when: ansible_distribution == "Archlinux"
 
+#------------------------------------------------------
+#- hosts: all
+#  become: true
+#  tasks:
+#
+#  - name: Add ssh key for (user)
+#    tags: user
+#    authorized_key:
+#        user: user
+#        key: "Paste pub key here between quotes"
+#        state: present
+#
+#  - name: Delete ssh key for (user)
+#    tags: user
+#    authorized_key:
+#        user: user
+#        key: "Paste pub key here between quotes"
+#        state: absent
 #------------------------------------------------------
 - hosts: web_servers
   become: true
@@ -44,7 +58,6 @@
     when: ansible_pkg_mgr == "apt"
 
 #--------
-
   - name: Install apache & php (AlmaLinux)
     tags: httpd,apache2,alma
     dnf:
@@ -53,7 +66,7 @@
           - php
         state: latest
     when: ansible_pkg_mgr == "dnf"
-
+#----
   - name: Enable httpd.service(AlmaLinux)
     tags: httpd,apache2,alma
     service:
@@ -61,13 +74,13 @@
         enabled: yes
         name: httpd
     when: ansible_os_family == "RedHat"
-
+#----
   - name: Add port 80/tcp to firewall
     tags: httpd,apache2,alma
     ansible.builtin.shell:
         cmd: sudo firewall-cmd --add-port=80/tcp
     when: ansible_os_family == "RedHat"
-
+#----
   - name: Copy default html file to web servers
     tags: httpd,apache2,copy
     copy:
@@ -76,6 +89,14 @@
         owner: root
         group: root
         mode: 0644
+#----
+  - name: Restart apache2.service so index.html takes effect (Ubuntu)
+    tags: apache2
+    service:
+        state: restarted
+        enabled: yes
+        name: apache2
+    when: ansible_os_family == "Ubuntu"
 
 #------------------------------------------------------
 - hosts: db_servers
@@ -88,7 +109,7 @@
           - mariadb
         state: latest
     when: ansible_distribution == "AlmaLinux"
-
+#----
   - name: install mariadb package (Ubuntu)
     apt:
         name:
@@ -120,15 +141,16 @@
           - caddy
           - unzip
         state: latest
-    when: ansible_pkg_mgr == "pacman"
-  
+    when: ansible_distribution == "Archlinux"
+#----  
   - name: Enable caddy.service (Archlinux-based)
     tags: arch,workstation
     service:
         name: caddy
         state: started
         enabled: yes
-
+    when: ansible_distribution == "Archlinux"
+#----
   - name: Install terraform
     tags: workstation
     unarchive: 
@@ -138,3 +160,5 @@
       mode: 0755
       owner: root
       group: root
+
+#------------------------------------------------------
