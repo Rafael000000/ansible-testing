@@ -1,6 +1,12 @@
 # ansible-testing
 Ansible testing repository
 
+
+I use this repo to edit and create ansible files when I am following courses on ansible.
+
+Tip: 
+When executing an ansible playbook make sure you run the command from the directory your ansible.cfg is in. Otherwise ansible will use the standard config file at /etc/ansible/.
+
 -------------------------------
 ### Ansible-notes
 
