@@ -21,8 +21,8 @@
   - name: Install updates (Archlinux-based)
     tags: always,archup
     community.general.pacman:
-      update_cache: yes
-    changed_when: false
+       update_cache: yes
+    changed:when: false
     when: ansible_distribution == "Archlinux"
 
 #------------------------------------------------------
