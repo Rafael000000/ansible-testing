@@ -19,35 +19,20 @@
         autoremove: yes
     when: ansible_distribution == "Ubuntu"
 
-    #- name: Install updates (Archlinux-based)
-    #tags: always,archup
-    #community.general.pacman:
-      # executable: pacman
-      # extra_args: -Sy archlinux --noconfirm
-      # upgrade: yes
-      # upgrade_extra_args: --noconfirm
-      # update_cache: yes
-    #when: ansible_distribution == "Archlinux"
+  - name: Install updates (Archlinux-based)
+    tags: always,archup
+    community.general.pacman:
+       executable: pacman
+       extra_args: -Sy archlinux --noconfirm
+       upgrade: yes
+       upgrade_extra_args: --noconfirm
+       update_cache: yes
+    when: ansible_distribution == "Archlinux"
 
 #------------------------------------------------------
-
 - hosts: all
   become: true
   tasks:
-
-  - name: Create user whyme (Ubuntu)
-    tags: always,user
-    user: 
-        name: whyme
-        groups: whyme
-    when: ansible_distribution == "Ubuntu"
-
-  - name: Create user whyme (Archlinux & AlmaLinux)
-    tags: always,user
-    user:
-        name: whyme
-        groups: whyme
-    when: ansible_distribution != "Ubuntu"
 
   - name: Add ssh key for whyme
     tags: always,user
@@ -55,21 +40,6 @@
         user: whyme
         key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIETZeeBBZ89bV2MPt7NXQJEj/kPTUz2DZF6Cf81nkpmE ansible"
 
-
-  - name: Add sudoers file for whyme
-    tags: always,user
-    copy:
-      src: /home/$USER/Git/ansible-testing/playbooks/files/sudoer_whyme
-      dest: /etc/sudoers.d/whyme
-      owner: root
-      group: root
-      mode: 0440
-
-
-  - name: Echo rights into /etc/sudoers file
-    tags: user
-    ansible.builtin.shell:
-        cmd: cat /etc/sudoers.d/whyme >> /etc/sudoers
 #------------------------------------------------------
 - hosts: web_servers
   become: true
@@ -112,12 +82,19 @@
   - name: Copy default html file to web servers
     tags: httpd,apache2,copy
     copy:
-        src: /home/$USER/Git/ansible-testing/playbooks/files/default_site.html
+        src: /home/$USER/Git/ansible-testing/getting-started-with-ansible/playbooks/files/default_site.html
         dest: /var/www/html/index.html
         owner: root
         group: root
         mode: 0644
 
+  - name: Restart apache2.service so index.html takes effect (Ubuntu)
+    tags: apache2
+    service:
+        state: restarted
+        enabled: yes
+        name: apache2
+    when: ansible_os_family == "Ubuntu"
 #------------------------------------------------------
 - hosts: db_servers
   become: true

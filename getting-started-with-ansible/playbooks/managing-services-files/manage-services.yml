@@ -96,6 +96,7 @@
         state: latest
         autoremove: yes
     when: ansible_distribution == "Ubuntu"
+
 #------------------------------------------------------
 - hosts: file_servers
   become: true

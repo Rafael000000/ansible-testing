@@ -1,0 +1,57 @@
+---
+
+- hosts: all
+  become: true
+  pre_tasks:
+
+  - name: Install updates (AlmaLinux)
+    tags: always
+    dnf: 
+        update_only: yes
+        update_cache: yes
+    when: ansible_distribution == "AlmaLinux" 
+
+  - name: Install updates (Ubuntu)
+    tags: always
+    apt:
+        update_cache: yes
+        upgrade: dist
+        autoremove: yes
+    when: ansible_distribution == "Ubuntu"
+
+  - name: Install updates (Archlinux-based)
+    tags: always,archup
+    community.general.pacman:
+       executable: pacman
+       extra_args: -Sy archlinux --noconfirm
+       upgrade: yes
+       upgrade_extra_args: --noconfirm
+       update_cache: yes
+    when: ansible_distribution == "Archlinux"
+
+#------------------------------------------------------
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: Create user whyme
+    tags: always,user
+    user:
+        name: whyme
+
+  - name: Add ssh key for whyme
+    tags: always,user
+    authorized_key:
+        user: whyme
+        key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIETZeeBBZ89bV2MPt7NXQJEj/kPTUz2DZF6Cf81nkpmE ansible"
+
+#--------
+  - name: Add sudoers file for whyme
+    tags: always,user
+    copy:
+      src: /home/$USER/Git/ansible-testing/getting-started-with-ansible/playbooks/files/sudoer_whyme
+      dest: /etc/sudoers.d/whyme
+      owner: root
+      group: root
+      mode: 0440

@@ -57,7 +57,7 @@
   - name: Copy default html file to web servers
     tags: httpd,apache2,copy
     copy:
-        src: /home/$USER/Git/ansible-testing/playbooks/files/default_site.html
+        src: /home/$USER/Git/ansible-testing/getting-started-with-ansible/playbooks/files/default_site.html
         dest: /var/www/html/index.html
         owner: root
         group: root
