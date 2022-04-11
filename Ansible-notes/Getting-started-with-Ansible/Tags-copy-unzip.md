@@ -48,7 +48,8 @@ e.g. This snippet is located under (- hosts: web_servers)
 - name: Copy default html file to web servers
     tags: httpd,apache2
     copy:
-      src: /home/$USER/Git/ansible-testing/playbooks/managing-services-files/default_site.html
+    src:/home/$USER/Git/ansible-testing/getting-started-with-ansible/playbooks/managing-services-files/default_site.html
+     #"src:"" needs to be lined up with "dest:" and don't forget the space between : and /
       dest: /var/www/html/index.html
       owner: root
       group: root
@@ -59,3 +60,19 @@ Here you can see I use the module 'copy' to copy 'default_sites.html' to '/var/w
 
 `Copy:` is a module from ansible [Docs copy](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/copy_module.html)
 `src:` This is where you input the file that needs to be copied. This can be a full path.
+`dest:` This is where you put the location and new filename of the file you are copying.
+`owner:` Here you specify who the owner of the file is gonna be.
+`group:` Here you specify what group the file belongs to.
+`mode:` Here you specify the rights of the file:
+```plaintext
+`r` (read) = 4
+`w` (write) = 2
+`x` (execute) = 1
+no permissions = 0
+
+The order in which the numbers are put is:
+sticky bit, owner, group, others
+e.g.
+
+0777 means everyone can do everything
+```
