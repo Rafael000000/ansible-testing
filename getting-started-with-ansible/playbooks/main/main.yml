@@ -1,15 +1,15 @@
 ---
-
+ 
 - hosts: all
   become: true
   pre_tasks:
 
   - name: Install updates (AlmaLinux)
     tags: always
-    dnf: 
+    dnf:
         update_cache: yes
     changed_when: false
-    when: ansible_distribution == "AlmaLinux" 
+    when: ansible_distribution == "AlmaLinux"
 
   - name: Install updates (Ubuntu)
     tags: always
@@ -25,140 +25,27 @@
     changed_when: false
     when: ansible_distribution == "Archlinux"
 
-#------------------------------------------------------
-#- hosts: all
-#  become: true
-#  tasks:
-#
-#  - name: Add ssh key for (user)
-#    tags: user
-#    authorized_key:
-#        user: user
-#        key: "Paste pub key here between quotes"
-#        state: present
-#
-#  - name: Delete ssh key for (user)
-#    tags: user
-#    authorized_key:
-#        user: user
-#        key: "Paste pub key here between quotes"
-#        state: absent
-#------------------------------------------------------
+- hosts: all
+  become: true
+  roles:
+    - base
+ 
 - hosts: web_servers
   become: true
-  tasks:
-
-  - name: Install apache & php (Ubuntu)
-    tags: httpd,apache2
-    apt:
-        name: 
-          - apache2
-          - libapache2-mod-php
-        state: latest
-    when: ansible_pkg_mgr == "apt"
-
-#--------
-  - name: Install apache & php (AlmaLinux)
-    tags: httpd,apache2,alma
-    dnf:
-        name:
-          - httpd
-          - php
-        state: latest
-    when: ansible_pkg_mgr == "dnf"
-#----
-  - name: Enable httpd.service(AlmaLinux)
-    tags: httpd,apache2,alma
-    service:
-        state: started
-        enabled: yes
-        name: httpd
-    when: ansible_os_family == "RedHat"
-#----
-  - name: Add port 80/tcp to firewall
-    tags: httpd,apache2,alma
-    ansible.builtin.shell:
-        cmd: sudo firewall-cmd --add-port=80/tcp
-    when: ansible_os_family == "RedHat"
-#----
-  - name: Copy default html file to web servers
-    tags: httpd,apache2,copy
-    copy:
-        src: /home/$USER/Git/ansible-testing/getting-started-with-ansible/playbooks/files/default_site.html
-        dest: /var/www/html/index.html
-        owner: root
-        group: root
-        mode: 0644
-#----
-  - name: Restart apache2.service so index.html takes effect (Ubuntu)
-    tags: apache2
-    service:
-        state: restarted
-        enabled: yes
-        name: apache2
-    when: ansible_os_family == "Ubuntu"
-
-#------------------------------------------------------
+  roles:
+    - web_servers
+ 
 - hosts: db_servers
   become: true
-  tasks:
-
-  - name: Install mariadb package (AlmaLinux)
-    dnf:
-        name: 
-          - mariadb
-        state: latest
-    when: ansible_distribution == "AlmaLinux"
-#----
-  - name: install mariadb package (Ubuntu)
-    apt:
-        name:
-          - mariadb-server
-        state: latest
-        autoremove: yes
-    when: ansible_distribution == "Ubuntu"
-
-#------------------------------------------------------
+  roles:
+    - db_servers
+ 
 - hosts: file_servers
   become: true
-  tasks:
+  roles:
+    - file_servers
 
-  - name: Install samba package (Ubuntu & AlmaLinux)
-    package:
-        name:
-          - samba
-        state: latest
-
-#------------------------------------------------------
 - hosts: workstation
   become: true
-  tasks:
-
-  - name: Install multiple packages (Archlinux-based)
-    tags: arch,workstation
-    community.general.pacman:
-        name: 
-          - caddy
-          - unzip
-        state: latest
-    when: ansible_distribution == "Archlinux"
-#----  
-  - name: Enable caddy.service (Archlinux-based)
-    tags: arch,workstation
-    service:
-        name: caddy
-        state: started
-        enabled: yes
-    when: ansible_distribution == "Archlinux"
-#----
-  - name: Install terraform
-    tags: workstation
-    unarchive: 
-      src: https://releases.hashicorp.com/terraform/1.1.7/terraform_1.1.7_linux_amd64.zip
-      dest: /usr/local/bin
-      remote_src: yes
-      mode: 0755
-      owner: root
-      group: root
-
-#------------------------------------------------------
+  roles:
+    - workstation
