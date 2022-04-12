@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Getting-started-with-Ansible/Roles.md",
+            "file": "Getting-started-with-Ansible/Tags-copy-unzip.md",
             "mode": "preview",
             "source": false
           }
@@ -40,7 +40,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "Example",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Getting-started-with-Ansible/Roles.md",
+                "file": "Getting-started-with-Ansible/Tags-copy-unzip.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -89,15 +89,15 @@
   },
   "active": "708f4d96ceedf899",
   "lastOpenFiles": [
-    "Getting-started-with-Ansible/Roles.md",
-    "Getting-started-with-Ansible/Playbook-example.md",
+    "Getting-started-with-Ansible/Tags-copy-unzip.md",
+    "Getting-started-with-Ansible/My_files/My-ansible.cfg.md",
     "Getting-started-with-Ansible/My_files/Example_of_playbook.md",
-    "Example_role.md",
-    "Getting-started-with-Ansible/cleaner-playbook.md",
-    "Getting-started-with-Ansible/Apache-playbook.md",
-    "Getting-started-with-Ansible/Managing-services.md",
-    "SSH-keys.md",
-    "Ansible links.md",
-    "Getting-started-with-Ansible/Tags-copy-unzip.md"
+    "Getting-started-with-Ansible/My_files/My_inventory_file.md",
+    "Getting-started-with-Ansible/Playbook-example.md",
+    "Getting-started-with-Ansible/Ansible-when.md",
+    "Getting-started-with-Ansible/Inventory-file.md",
+    "Getting-started-with-Ansible/Group-playbooks.md",
+    "Getting-started-with-Ansible/Create-user.md",
+    "Getting-started-with-Ansible/Managing-services.md"
   ]
 }
