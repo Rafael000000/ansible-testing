@@ -4,15 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "708f4d96ceedf899",
+        "id": "de519c802c1038d7",
         "type": "leaf",
         "state": {
-          "type": "markdown",
-          "state": {
-            "file": "Getting-started-with-Ansible/Tags-copy-unzip.md",
-            "mode": "preview",
-            "source": false
-          }
+          "type": "empty",
+          "state": {}
         }
       }
     ],
@@ -69,7 +65,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Getting-started-with-Ansible/Tags-copy-unzip.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,7 +82,7 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "708f4d96ceedf899",
+  "active": "de519c802c1038d7",
   "lastOpenFiles": [
     "Getting-started-with-Ansible/Tags-copy-unzip.md",
     "Getting-started-with-Ansible/My_files/My-ansible.cfg.md",
